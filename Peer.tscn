@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfa0r10vfnrja"]
+
+[ext_resource type="Script" path="res://Peer.gd" id="1"]
+
+[node name="Peer" type="Node3D"]
+script = ExtResource( "1" )
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
