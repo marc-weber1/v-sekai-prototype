@@ -1,12 +1,6 @@
+res://Startup.tscn
+res://DefaultAssets/default_environment.tres
+res://Clients/VRMAvatar.tscn
+res://Clients/VRClient.tscn
 res://Peer.tscn
-res://Peer.gd
-res://Server.gd
-res://RemotePlayer/TestPlayer.gd
-res://RemotePlayer/TestPlayer.tscn
-res://RemotePlayer/Tracker.tscn
-res://GUI/WorldPanel.gd
-res://Server.tscn
-res://DefaultAssets/Mirror.tscn
-res://DefaultAssets/Mirror.gd
-res://DefaultAssets/DefaultWorld.tscn
-res://Clients/Client.gd
+res://Clients/VRClient.gd

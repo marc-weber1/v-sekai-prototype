@@ -5,4 +5,4 @@
 [node name="Peer" type="Node3D"]
 script = ExtResource( "1" )
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[node name="WorldLoader" type="HTTPRequest" parent="."]

@@ -1,36 +1,27 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://cdduli371ruob"]
 
-[ext_resource path="res://GUI/ServerPanel.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://GUI/ServerPanel.gd" id="1"]
 
 [node name="ServerPanel" type="Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -624.0
-margin_bottom = -520.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+anchor_right = 0.557
+anchor_bottom = 0.235
+offset_right = -0.368042
+offset_bottom = -1.52588e-05
+script = ExtResource( "1" )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 165.0
-margin_top = 46.0
-margin_right = 229.0
-margin_bottom = 66.0
+offset_left = 247.0
+offset_top = 80.0
+offset_right = 319.0
+offset_bottom = 111.0
 text = "Connect"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 390.0
-margin_bottom = 34.0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 543.0
+offset_bottom = 55.0
 caret_blink = true
 caret_blink_speed = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

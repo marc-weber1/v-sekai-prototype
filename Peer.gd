@@ -22,7 +22,7 @@ func _ready():
 	get_tree().connect("network_peer_connected", self._user_connected)
 	get_tree().connect("network_peer_disconnected", self._user_disconnected)
 	
-	$HTTPRequest.connect("request_completed", self._on_request_completed)
+	$WorldLoader.connect("request_completed", self._on_request_completed)
 
 
 func _user_connected(id):
@@ -52,16 +52,16 @@ func _on_request_completed(result, response_code, headers, body):
 
 # Called from other clients that are moving around
 @rpc(any_peer, unreliable)
-func update_remote_tracker_pos(head_pos, lhand_pos, rhand_pos, tracker_pos_arr):
+func update_peer_tracker_pos(head_pos, lhand_pos, rhand_pos, tracker_pos_arr):
 	var id = get_tree().get_rpc_sender_id()
 	players[id].update_transform(head_pos, lhand_pos, rhand_pos, tracker_pos_arr)
 
 # Remote player added a tracker
 @rpc(any_peer)
-func remote_tracker_activated(tracker_id):
+func peer_tracker_activated(tracker_id):
 	pass
 
 # Remote player removed a tracker
 @rpc(any_peer)
-func remote_tracker_deactivated(tracker_id):
+func peer_tracker_deactivated(tracker_id):
 	pass

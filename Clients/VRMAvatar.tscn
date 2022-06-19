@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://clkx7ane8jibd"]
 
-[ext_resource path="res://Clients/VRMAvatar.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://Clients/VRMAvatar.gd" id="1"]
 
-[node name="Avatar" type="Spatial"]
-script = ExtResource( 1 )
+[node name="Avatar" type="Node3D"]
+script = ExtResource( "1" )

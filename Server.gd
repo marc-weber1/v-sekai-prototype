@@ -16,11 +16,11 @@ func _ready():
 	if "--max-users" in OS.get_cmdline_args():
 		pass
 	
-	var peer = NetworkedMultiplayerENet.new()
+	var peer = ENetMultiplayerPeer.new()
 	print("[INFO] Starting server...")
 	peer.create_server(port, max_peers)
-	get_tree().set_network_peer(peer)
-	assert(get_tree().is_network_server())
+	multiplayer.set_network_peer(peer)
+	assert(multiplayer.is_server())
 	
 	print("[INFO] Server running on port " + str(port))
 

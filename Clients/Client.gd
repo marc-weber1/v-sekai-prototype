@@ -6,9 +6,9 @@ class_name Client
 var is_loading_avatar = false
 
 func _ready():
-	get_tree().connect("connected_to_server", self, "_connected_ok")
-	get_tree().connect("connection_failed", self, "_connected_fail")
-	get_tree().connect("server_disconnected", self, "_server_disconnected")
+	get_tree().connect("connected_to_server", self._connected_ok)
+	get_tree().connect("connection_failed", self._connected_fail)
+	get_tree().connect("server_disconnected", self._server_disconnected)
 
 
 ## SIGNALS
@@ -38,10 +38,10 @@ func on_change_world(url):
 func on_server_connect(url: String):
 	
 	if url.is_valid_ip_address():
-		var peer = NetworkedMultiplayerENet.new()
+		var peer = ENetMultiplayerPeer.new()
 		print("[INFO] Connecting to server ...")
 		peer.create_client(url, DEFAULT_PORT)
-		get_tree().set_network_peer(peer)
+		multiplayer.set_multiplayer_peer(peer)
 	else:
 		print("[INFO] Attempted connection to invalid IP.")
 
@@ -51,7 +51,7 @@ func on_change_avatar(path):
 	
 	# Also start a thread to send the avatar to everyone else
 	var sender_thread = Thread.new()
-	sender_thread.start(self, "send_avatar_async", path, 0)
+	sender_thread.start(self.send_avatar_async, path, 0)
 
 
 ## AVATAR TRANSFERS
@@ -62,11 +62,11 @@ func send_avatar_async(path):
 	var buffer = file.get_buffer(file.get_len()).compress()
 	file.close()
 	
-	rpc("client_loaded_avatar", buffer)
+	rpc("peer_loaded_avatar", buffer)
 
 # Clientside; another user changed avatars
 @rpc(any_peer)
-func client_loaded_avatar(buffer):
+func peer_loaded_avatar(buffer):
 	var id = get_tree().get_rpc_sender_id()
 	print("[INFO] Downloading avatar from " + id)
 	
@@ -93,8 +93,8 @@ func gen_unique_string(length: int) -> String:
 # The server wants the clients to download a world
 @rpc
 func on_world_change(url):
-	$HTTPRequest.set_download_file("temp/world.pck")
-	var err = $HTTPRequest.request(url)
+	$WorldLoader.set_download_file("temp/world.pck")
+	var err = $WorldLoader.request(url)
 	if err:
 		print("[ERROR] Server changed to world at " + url + ", but it couldn't be downloaded.")
 		get_tree().set_network_peer(null) # Just disconnect I guess
@@ -103,11 +103,3 @@ func on_world_change(url):
 	
 	# Change to a loading world?
 
-
-## VOICE HANDLING
-
-func _on_created_voice_instance():
-	print("[DEBUG] Created VoiceInstance for remote player")
-
-func _on_removed_voice_instance():
-	print("[DEBUG] Removed VoiceInstance for remote player")

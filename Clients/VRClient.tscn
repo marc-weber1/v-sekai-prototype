@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg2s5ny1rek3u"]
+
+[ext_resource type="PackedScene" uid="uid://cfa0r10vfnrja" path="res://Peer.tscn" id="1_y5i8v"]
+[ext_resource type="Script" path="res://Clients/VRClient.gd" id="2_3ne3h"]
+[ext_resource type="PackedScene" uid="uid://clkx7ane8jibd" path="res://Clients/VRMAvatar.tscn" id="3_qr2ri"]
+
+[node name="Peer" instance=ExtResource( "1_y5i8v" )]
+script = ExtResource( "2_3ne3h" )
+user_height = 1.8
+
+[node name="You" type="XROrigin3D" parent="." index="1"]
+
+[node name="Avatar" parent="You" index="0" instance=ExtResource( "3_qr2ri" )]
+
+[node name="PlayerCamera" type="XRCamera3D" parent="You" index="1"]
+current = true

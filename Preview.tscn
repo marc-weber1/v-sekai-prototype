@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource path="res://Clients/OVRClient.tscn" type="PackedScene" id=1]
-[ext_resource path="res://DefaultAssets/DefaultWorld.tscn" type="PackedScene" id=2]
-[ext_resource path="res://RemotePlayer/TestPlayer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Startup.tscn" type="PackedScene" id=4]
+[ext_resource type="PackedScene" path="res://Clients/VRClient.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://durscosx204n0" path="res://DefaultAssets/DefaultWorld.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://blpg8er7yo1no" path="res://RemotePlayer/TestPlayer.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bl6xp0chq3bpr" path="res://Startup.tscn" id="4"]
 
 [node name="Spatial" instance=ExtResource( 4 )]
 
