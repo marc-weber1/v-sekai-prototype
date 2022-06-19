@@ -1,0 +1,4 @@
+[submodule "addons/canvas_plane"]
+	path = addons/canvas_plane
+	url = https://github.com/V-Sekai/canvas_plane.git
+	branch = godot4
