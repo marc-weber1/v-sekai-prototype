@@ -16,11 +16,12 @@ var current_world
 func _ready():
 	
 	# Start in the default world
-	current_world = DEFAULT_WORLD.instance()
+	print("[DEBUG] Loading default world")
+	current_world = DEFAULT_WORLD.instantiate()
 	add_child(current_world)
 	
-	get_tree().connect("network_peer_connected", self._user_connected)
-	get_tree().connect("network_peer_disconnected", self._user_disconnected)
+	multiplayer.peer_connected.connect(self._user_connected)
+	multiplayer.peer_disconnected.connect(self._user_disconnected)
 	
 	$WorldLoader.connect("request_completed", self._on_request_completed)
 

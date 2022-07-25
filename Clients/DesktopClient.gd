@@ -1,8 +1,12 @@
 extends Client
 class_name DesktopClient
 
-@onready var head = $Player_Camera
+@onready var head = $You/PlayerCamera
 
+
+func _ready():
+	super()
+	print("[DEBUG] Desktop client initialized.")
 
 ## SEND AVATAR UPDATES
 

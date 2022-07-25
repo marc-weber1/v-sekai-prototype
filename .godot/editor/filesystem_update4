@@ -3,4 +3,10 @@ res://DefaultAssets/default_environment.tres
 res://Clients/VRMAvatar.tscn
 res://Clients/VRClient.tscn
 res://Peer.tscn
+res://Clients/DesktopClient.tscn
+res://Clients/DesktopClient.gd
+res://Peer.gd
+res://DefaultAssets/DefaultWorld.tscn
+res://Preview.tscn
+res://Clients/Client.gd
 res://Clients/VRClient.gd

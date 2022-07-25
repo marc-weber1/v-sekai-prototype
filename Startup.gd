@@ -12,6 +12,6 @@ func _ready():
 		add_child(server)
 		
 	else:
-		var vr_client_scene = load("res://Clients/VRClient.tscn")
+		var vr_client_scene = load("res://Clients/DesktopClient.tscn")
 		client = vr_client_scene.instantiate()
 		add_child(client)

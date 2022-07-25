@@ -6,9 +6,11 @@ class_name Client
 var is_loading_avatar = false
 
 func _ready():
-	get_tree().connect("connected_to_server", self._connected_ok)
-	get_tree().connect("connection_failed", self._connected_fail)
-	get_tree().connect("server_disconnected", self._server_disconnected)
+	super()
+	print("client??")
+	multiplayer.connected_to_server.connect(self._connected_ok)
+	multiplayer.connection_failed.connect(self._connected_fail)
+	multiplayer.server_disconnected.connect(self._server_disconnected)
 
 
 ## SIGNALS

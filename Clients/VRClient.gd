@@ -11,6 +11,8 @@ var trackers = []
 
 
 func _ready():
+	super()
+	
 	interface = XRServer.find_interface("OpenXR")
 	print("Found interface.")
 	if interface and interface.is_initialized():

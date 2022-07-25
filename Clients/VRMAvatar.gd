@@ -1,6 +1,5 @@
 extends Node
 
-var VRM_LOADER = load("res://addons/vrm/vrm_loader.gd")
 @onready var peer = get_node("../..")
 
 var current_avatar: Node3D
@@ -8,6 +7,16 @@ var loader_thread = Thread.new()
 
 
 ## AVATAR LOADING
+
+func _import_scene(path: String, flags: int, options: Dictionary, bake_fps: int) -> Object:
+	var gltf : GLTFDocument = GLTFDocument.new()
+	var extension : GLTFDocumentExtension = load("res://addons/vrm/vrm_extension.gd").new()
+	gltf.extensions.push_front(extension)
+	var state : GLTFState = GLTFState.new()
+	var err = gltf.append_from_file(path, state, flags, bake_fps)
+	if err != OK:
+		return null
+	return gltf.generate_scene(state, bake_fps)
 
 # Start a thread to load the avatar
 func begin_load_avatar(path):
@@ -21,7 +30,7 @@ func begin_load_avatar(path):
 	loader_thread.start(self.load_avatar_async, path, 0)
 
 func load_avatar_async(path):
-	var new_avatar = VRM_LOADER._import_scene(path, 0, {}, 1000)
+	var new_avatar = _import_scene(path, 0, {}, 1000)
 	
 	call_deferred("finish_loading_avatar", new_avatar)
 

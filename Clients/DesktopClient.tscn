@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cfa0r10vfnrja" path="res://Peer.tscn" id="1"]
 [ext_resource type="Script" path="res://Clients/DesktopClient.gd" id="3"]
-[ext_resource type="PackedScene" path="res://Clients/VRMAvatar.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://clkx7ane8jibd" path="res://Clients/VRMAvatar.tscn" id="4"]
 
 [node name="Peer" instance=ExtResource( "1" )]
 script = ExtResource( "3" )
@@ -13,3 +13,4 @@ script = ExtResource( "3" )
 
 [node name="PlayerCamera" type="Camera3D" parent="You" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+current = true

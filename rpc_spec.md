@@ -1,3 +1,6 @@
+## All the below rpcs are assumed to exist on the root node in the godot scene hierarchy, which in this project is called a Peer. Servers and every type of client inherit from Peer.
+
+
 # CLIENT <-> SERVER
 
 ## World Loading
@@ -26,5 +29,5 @@ Player added tracker, make sure to set a maximum so they can't spam this
 Player removed tracker, make sure to handle them removing a nonexistent tracker
 <-> peer_tracker_deactivated(tracker_name)
 
-Update positions of all trackers at once, any value may be null
+Update positions of all trackers at once, any value may be null - should maybe be netcoded better for online games?
 <-> (unreliable) update_peer_tracker_pos(head_pos, lhand_pos, rhand_pos, tracker_pos_arr)

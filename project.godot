@@ -100,6 +100,5 @@ environment/defaults/default_clear_color=Color(0.301961, 0.301961, 0.301961, 1)
 
 [xr]
 
-openxr/enabled=true
 openxr/default_action_map="res://DefaultAssets/default_xr_action_map.tres"
 shaders/enabled=true
